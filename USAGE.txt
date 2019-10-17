@@ -1,0 +1,34 @@
+0) Install opencv
+		https://docs.opencv.org/2.4/doc/tutorials/introduction/windows_install/windows_install.html
+		
+1) Modify PATH variable of the system to include 
+	OPENCV_DIR/bin
+	
+2) Visual Studio configuration:
+	C/C++ -> General -> Additional Include Directories
+	Add the directories with libraries: OPENCV_DIR/build/include
+	
+	Linker -> General -> Additional Library Directories
+	Add the directories with libraries: OPENCV_DIR/build/x64/vcXX/lib  (XX version of Visual: 15, 17...)
+	
+	Linker -> Input -> Additional Dependencies
+	If Release mode write:
+		opencv_core2413.lib , opencv_imgproc2413.lib, opencv_highgui2413.lib
+	If Debug mode write:
+		opencv_core2413d.lib , opencv_imgproc2413d.lib, opencv_highgui2413d.lib
+		
+	Configuration Properties -> VC++ Directories -> Include Directories
+	Add OPENCV_DIR/build/include where OPENCV_DIR is the folder of unpacked OpenCV
+	
+3) Visual Studio parameters (2 parameters, in image and out image) IN IMAGE MUST BE AN EXR
+	PX -> Properties -> Configuration Properties -> Debugging -> Command Arguments
+	Add in and out image (example: ennis_latlong.exr OUTPUT.png)
+	(In image must be inside P5 folder)
+	
+	
+4) Open P5.sln to open the Visual Studio solution
+
+5) According to Additional Dependencies (step 2) run Visual Studio in Debug mode or Release mode,
+and execute (ctrl+F5)
+
+6) Result image should appear alonside In image (inside P5 folder)

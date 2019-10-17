@@ -1,0 +1,4 @@
+MyWork:
+
+Completion of file:
+funcHDR.cu
